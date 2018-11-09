@@ -12,19 +12,21 @@ class Search extends Component {
 
     axios
       .get(
-        `https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track=${this.state.trackTitle}&page_size=10&page=1&s_track_rating=desc&apikey=${
+        `https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track=${
+          this.state.trackTitle
+        }&page_size=10&page=1&s_track_rating=desc&apikey=${
           process.env.REACT_APP_MM_KEY
         }`
       )
       .then(res => {
         dispatch({
-            type: 'SEARCH_TRACKS',
-            payload: res.data.message.body.track_list
+          type: "SEARCH_TRACKS",
+          payload: res.data.message.body.track_list
         });
-        this.setState({trackTitle: ''});
+        this.setState({ trackTitle: "" });
       })
       .catch(err => console.log(err));
-  }
+  };
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -34,8 +36,8 @@ class Search extends Component {
     return (
       <Consumer>
         {value => {
-           const { dispatch } = value; 
-           
+          const { dispatch } = value;
+
           return (
             <div className="card card-body mb-4 p-4">
               <h1 className="display-4 text-center">
