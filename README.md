@@ -1,3 +1,7 @@
+This is a Lyric Track search app where the user can search for song lyrics by Track.
+
+Live app is here: https://tracksearch.netlify.com/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
